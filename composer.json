@@ -1,12 +1,14 @@
 {
+    "name": "giansalex/symfony-async",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "react/http": "^1.2",
         "symfony/console": "5.2.*",
         "symfony/dotenv": "5.2.*",
