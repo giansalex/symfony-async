@@ -38,4 +38,4 @@ COPY --from=build-env /app .
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 ENTRYPOINT ["vendor/bin/server"]
-CMD ["run", "0.0.0.0:8000", "--adapter=App\\AppKernelAdapter"]
+CMD ["run", "0.0.0.0:8000", "--adapter=App\\AppKernelAdapter", "--no-static-folder", "--workers=-1"]
