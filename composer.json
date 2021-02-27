@@ -10,6 +10,7 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "drift/http-kernel": "^0.1.16",
+        "drift/server": "^0.1.22",
         "react/http": "^1.2",
         "symfony/console": "5.2.*",
         "symfony/dotenv": "5.2.*",
