@@ -1,4 +1,10 @@
 {
+    "clue/block-react": {
+        "version": "v1.4.0"
+    },
+    "drift/http-kernel": {
+        "version": "0.1.16"
+    },
     "evenement/evenement": {
         "version": "v3.0.1"
     },
