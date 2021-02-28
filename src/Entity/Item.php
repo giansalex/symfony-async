@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use function Safe\json_decode;
+
 class Item
 {
     public int $userId;
