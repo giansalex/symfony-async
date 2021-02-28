@@ -27,10 +27,9 @@ class ItemsApi implements ItemsApiInterface
     public function get(string $id): PromiseInterface
     {
         return $this->client->get("todos/$id")
-                ->then(function (ResponseInterface $response) {
-                    $json = (string)$response->getBody();
-
-                    return Item::fromJson($json);
-                });
+                ->then(
+                    fn (ResponseInterface $response)
+                    => Item::fromJson((string)$response->getBody())
+                );
     }
 }

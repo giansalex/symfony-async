@@ -22,8 +22,6 @@ class ItemsController
     public function index(string $id): PromiseInterface
     {
         return $this->api->get($id)
-                ->then(function (Item $item) {
-                    return new JsonResponse($item);
-                });
+                ->then(fn (Item $item) => new JsonResponse($item));
     }
 }
