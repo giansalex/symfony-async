@@ -20,5 +20,5 @@ Run server
 vendor/bin/server run 127.0.0.1:8000 --adapter=App\\AppKernelAdapter
 ```
 
-Go to `http://127.0.0.1:8000/api/items/1`
+Go to http://127.0.0.1:8000/api/items/1
 
