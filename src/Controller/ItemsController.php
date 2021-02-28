@@ -8,6 +8,7 @@ use App\Entity\Item;
 use App\Services\ItemsApiInterface;
 use React\Promise\PromiseInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Annotation\Route;
 
 class ItemsController
 {
@@ -19,6 +20,7 @@ class ItemsController
     {
     }
 
+    #[Route("/api/items/{id<\d>}", methods: ["GET"])]
     public function index(string $id): PromiseInterface
     {
         return $this->api->get($id)

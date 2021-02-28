@@ -27,10 +27,7 @@ ENV APP_ENV prod
 EXPOSE 8000
 WORKDIR /var/www/html
 
-RUN apk update && \
-    docker-php-ext-configure opcache --enable-opcache && \
-    docker-php-ext-install opcache && \
-    docker-php-ext-install pcntl
+RUN apk update && docker-php-ext-install pcntl
 
 COPY --from=build-env /app .
 
