@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Drift\EventBus\Subscriber\EventBusSubscriber;
 use Drift\HttpKernel\AsyncKernel;
 use App\Kernel as ApplicationKernel;
 use Drift\Server\Adapter\DriftKernel\SyncKernelException;
@@ -51,7 +52,23 @@ class AppKernelAdapter extends SymfonyKernelBasedAdapter
     {
         return $this
             ->kernel
-            ->preload();
+            ->preload()
+            ->then(function () {
+                $container = $this->kernel->getContainer();
+                $serverContext = $this->serverContext;
+
+                if (
+                    class_exists(EventBusSubscriber::class) &&
+                    $serverContext->hasExchanges() &&
+                    $container->has(EventBusSubscriber::class)
+                ) {
+                    $eventBusSubscriber = $container->get(EventBusSubscriber::class);
+                    $eventBusSubscriber->subscribeToExchanges(
+                        $serverContext->getExchanges(),
+                        $this->outputPrinter
+                    );
+                }
+            });
     }
 
     /**
